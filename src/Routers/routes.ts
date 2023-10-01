@@ -2,13 +2,17 @@ import React from "react";
 import { Home, MenuByLetter, MenuByName, MenuIngredients } from "../pages/index";
 
 export type TMapRoutes = {
-  label: string;
+  label?: string;
   path: string;
   // eslint-disable-next-line no-undef
   component: React.FC;
 };
 
 export const routes: TMapRoutes[] = [
+  {
+    path: "/",
+    component: Home,
+  },
   {
     label: "Pesquisar Receitas",
     path: "/by-name",
