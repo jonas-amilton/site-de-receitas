@@ -1,6 +1,5 @@
 import React, { ChangeEvent } from "react";
-import TextField from "@mui/material/TextField";
-import { Grid } from "@mui/material";
+import { Grid, TextField } from "@mui/material";
 
 interface SearchFieldProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
