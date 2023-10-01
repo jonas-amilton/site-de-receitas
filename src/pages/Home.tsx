@@ -3,16 +3,8 @@ import { Grid } from "@mui/material";
 import TitlePage from "../components/TitlePage";
 import axios from "axios";
 import MultiActionAreaCard from "../components/Card";
+import { limitDescription } from "../utils/limitDescription";
 
-// Função para limitar a descrição para um número específico de palavras
-const limitDescription = (description: string, numWords: number) => {
-  const words = description.split(" ");
-  if (words.length <= numWords) {
-    return description;
-  }
-  const limitWords = words.slice(0, numWords);
-  return `${limitWords.join(" ")}...`;
-};
 
 export const Home: React.FC = () => {
   const [recipes, setRecipes] = useState<any[]>([]);
