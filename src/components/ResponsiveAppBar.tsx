@@ -48,7 +48,7 @@ function ResponsiveAppBar() {
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
-                fontFamily: "monospace",
+                fontFamily: "sans-serif",
                 fontWeight: 700,
                 letterSpacing: ".3rem",
                 color: "inherit",
@@ -113,7 +113,7 @@ function ResponsiveAppBar() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
+              fontFamily: "sans-serif",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "inherit",
