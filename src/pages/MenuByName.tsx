@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
-import TitlePage from "../components/TitlePage";
-import MultiActionAreaCard from "../components/Card";
+import {TitlePage, MultiActionAreaCard, SearchField} from "../components/index";
 import { limitDescription } from "../utils/limitDescription";
 import axios from "axios";
-import SearchField from "../components/SearchField";
 
 export const MenuByName: React.FC = () => {
   const [recipes, setRecipes] = useState<any[]>([]);

@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Grid, Typography, Card, CardContent } from "@mui/material";
-import TextField from "@mui/material/TextField";
-import TitlePage from "../components/TitlePage";
+import React from "react";
+import { Grid } from "@mui/material";
+import {TitlePage} from "../components/index";
 
 export const MenuByLetter: React.FC = () => {
   return (

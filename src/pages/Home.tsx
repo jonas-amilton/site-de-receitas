@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
-import TitlePage from "../components/TitlePage";
+import {TitlePage, MultiActionAreaCard} from "../components/index";
 import axios from "axios";
-import MultiActionAreaCard from "../components/Card";
 import { limitDescription } from "../utils/limitDescription";
 
 

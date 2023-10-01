@@ -5,7 +5,7 @@ interface TitlePageProps {
   title: string;
 }
 
-const TitlePage: React.FC<TitlePageProps> = ({ title }) => {
+export const TitlePage: React.FC<TitlePageProps> = ({ title }) => {
   return (
     <Grid item xs={12}>
       <Typography style={{color:'#F97316'}} variant="h4">{title}</Typography>
@@ -13,5 +13,3 @@ const TitlePage: React.FC<TitlePageProps> = ({ title }) => {
     </Grid>
   );
 };
-
-export default TitlePage;

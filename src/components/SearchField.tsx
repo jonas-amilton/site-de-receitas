@@ -6,7 +6,7 @@ interface SearchFieldProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export default function SearchField({ onChange }: SearchFieldProps) {
+export function SearchField({ onChange }: SearchFieldProps) {
   return (
     <Grid item xs={12}>
       <TextField
