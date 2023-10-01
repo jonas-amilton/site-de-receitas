@@ -22,6 +22,7 @@ export const Home: React.FC = () => {
       // IDs das receitas
       const recipeIds = [
         52938, 52892, 52833, 52796, 52772, 52765, 52940, 52939, 52942, 52944,
+        52945, 52947,
       ];
       const recipesData = await Promise.all(
         recipeIds.map(async (id) => {
