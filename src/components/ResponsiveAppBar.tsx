@@ -93,7 +93,7 @@ function ResponsiveAppBar() {
                   key={page.path}
                   onClick={() => handleCloseNavMenu(page.path)}
                 >
-                  {page.path === "/counter" ? (
+                  {page.path === "/" ? (
                     <Badge badgeContent={BADGE_CONTENT} color="secondary">
                       <Typography textAlign="center">{page.label}</Typography>
                     </Badge>
@@ -130,7 +130,7 @@ function ResponsiveAppBar() {
             }}
           >
             {routes.map((page) => {
-              return page.path === "/counter" ? (
+              return page.path === "/" ? (
                 <Button
                   key={page.path}
                   onClick={() => handleCloseNavMenu(page.path)}
