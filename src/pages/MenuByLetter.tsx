@@ -6,6 +6,7 @@ import {
   MultiActionAreaCard,
 } from "../components/index";
 import { limitDescription } from "../utils/limitDescription";
+import axios from "axios";
 
 interface Recipe {
   idMeal: string;
@@ -23,16 +24,15 @@ export const MenuByLetter: React.FC = () => {
   const fetchRecipesByLetter = async () => {
     if (selectedLetter) {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           `https://www.themealdb.com/api/json/v1/1/search.php?f=${selectedLetter}`
         );
-        const data = await response.json();
 
-        if (!data.meals || data.meals.length === 0) {
+        if (!response.data.meals || response.data.meals.length === 0) {
           setNoResults(true);
         } else {
           setNoResults(false);
-          setRecipes(data.meals);
+          setRecipes(response.data.meals);
         }
       } catch (error) {
         console.error("Erro ao buscar receitas:", error);
