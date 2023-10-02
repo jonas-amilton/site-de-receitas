@@ -1,6 +1,13 @@
 import * as React from "react";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
-import { Button, CardActionArea, CardActions } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Button,
+  CardActionArea,
+  CardActions,
+} from "@mui/material";
 
 export function MultiActionAreaCard(props: {
   title: string;
@@ -11,7 +18,7 @@ export function MultiActionAreaCard(props: {
   const { title, description, image, urlYoutube } = props;
 
   return (
-    <Card sx={{ width: '20em', margin: "1.2em" }}>
+    <Card sx={{ width: "20em", margin: "1.2em" }}>
       <CardActionArea>
         <CardMedia component="img" height="140" image={image} alt={title} />
         <CardContent>
