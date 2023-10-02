@@ -11,7 +11,7 @@ export function MultiActionAreaCard(props: {
   const { title, description, image, urlYoutube } = props;
 
   return (
-    <Card sx={{ maxWidth: 345, margin: "1.2em" }}>
+    <Card sx={{ width: '20em', margin: "1.2em" }}>
       <CardActionArea>
         <CardMedia component="img" height="140" image={image} alt={title} />
         <CardContent>
