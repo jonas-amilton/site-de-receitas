@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
-import {TitlePage, MultiActionAreaCard} from "../components/index";
+import { TitlePage, MultiActionAreaCard } from "../components/index";
 import axios from "axios";
-import { limitDescription } from "../utils/limitDescription";
+import { IRecipe } from "../Interfaces/IRecipe";
 
 
 export const Home: React.FC = () => {
-  const [recipes, setRecipes] = useState<any[]>([]);
-
+  const [recipes, setRecipes] = useState<IRecipe[]>([]);
+  
   const getRandomRecipes = async () => {
     try {
       // IDs das receitas
@@ -37,13 +37,20 @@ export const Home: React.FC = () => {
     <Grid container spacing={2}>
       <TitlePage title="Receitas Aleatórias" />
       {recipes.map((recipe) => (
-        <MultiActionAreaCard
-          key={recipe.idMeal}
-          title={recipe.strMeal}
-          description={limitDescription(recipe.strInstructions, 20)} // Limita para 20 palavras
-          image={recipe.strMealThumb}
-          urlYoutube={recipe.strYoutube}
-        />
+        <>
+          <MultiActionAreaCard
+            key={recipe.idMeal}
+            title={recipe.strMeal}
+            description={recipe.strInstructions}
+            image={recipe.strMealThumb}
+            urlYoutube={recipe.strYoutube}
+            categoria={recipe.strCategory}
+            area={recipe.strArea}
+            tag={recipe.strTags}
+            ingredients={recipe}
+            medidas={recipe}
+          />
+        </>
       ))}
     </Grid>
   );
