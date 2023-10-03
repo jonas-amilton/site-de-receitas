@@ -112,7 +112,8 @@ export function MultiActionAreaCard(props: {
                   if (
                     ingredient !== undefined &&
                     ingredient !== null &&
-                    ingredient !== ""
+                    ingredient !== "" &&
+                    ingredient !== " "
                   ) {
                     return (
                       <Typography
@@ -136,7 +137,8 @@ export function MultiActionAreaCard(props: {
                   if (
                     medida !== undefined &&
                     medida !== null &&
-                    medida !== ""
+                    medida !== "" &&
+                    medida !== " "
                   ) {
                     return (
                       <Typography
