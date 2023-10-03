@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
-import {TitlePage, MultiActionAreaCard, SearchField} from "../components/index";
-import { limitDescription } from "../utils/limitDescription";
+import {
+  TitlePage,
+  MultiActionAreaCard,
+  SearchField,
+} from "../components/index";
 import axios from "axios";
+import { IRecipe } from "../Interfaces/IRecipe";
 
 export const MenuByName: React.FC = () => {
-  const [recipes, setRecipes] = useState<any[]>([]);
+  const [recipes, setRecipes] = useState<IRecipe[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
 
   const getRecipesByName = async () => {
@@ -39,13 +43,20 @@ export const MenuByName: React.FC = () => {
       <TitlePage title="Procurar Receitas por Nome" />
       <SearchField onChange={handleSearchInputChange} />
       {recipes.map((recipe) => (
-        <MultiActionAreaCard
-          key={recipe.idMeal}
-          title={recipe.strMeal}
-          description={limitDescription(recipe.strInstructions, 20)} // Limita para 20 palavras
-          image={recipe.strMealThumb}
-          urlYoutube={recipe.strYoutube}
-        />
+        <>
+          <MultiActionAreaCard
+            key={recipe.idMeal}
+            title={recipe.strMeal}
+            description={recipe.strInstructions}
+            image={recipe.strMealThumb}
+            urlYoutube={recipe.strYoutube}
+            categoria={recipe.strCategory}
+            area={recipe.strArea}
+            tag={recipe.strTags}
+            ingredients={recipe}
+            medidas={recipe}
+          />
+        </>
       ))}
     </Grid>
   );

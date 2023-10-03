@@ -5,20 +5,14 @@ import {
   TitlePage,
   MultiActionAreaCard,
 } from "../components/index";
-import { limitDescription } from "../utils/limitDescription";
 import axios from "axios";
+import { IRecipe } from "../Interfaces/IRecipe";
 
-interface Recipe {
-  idMeal: string;
-  strMeal: string;
-  strInstructions: string;
-  strMealThumb: string;
-  strYoutube: string;
-}
+
 
 export const MenuByLetter: React.FC = () => {
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [recipes, setRecipes] = useState<IRecipe[]>([]);
   const [noResults, setNoResults] = useState<boolean>(false);
 
   const fetchRecipesByLetter = async () => {
@@ -62,13 +56,20 @@ export const MenuByLetter: React.FC = () => {
           </Grid>
         ) : (
           recipes.map((recipe) => (
+           <>
             <MultiActionAreaCard
-              key={recipe.idMeal}
-              title={recipe.strMeal}
-              description={limitDescription(recipe.strInstructions, 20)} // Limita para 20 palavras
-              image={recipe.strMealThumb}
-              urlYoutube={recipe.strYoutube}
-            />
+            key={recipe.idMeal}
+            title={recipe.strMeal}
+            description={recipe.strInstructions}
+            image={recipe.strMealThumb}
+            urlYoutube={recipe.strYoutube}
+            categoria={recipe.strCategory}
+            area={recipe.strArea}
+            tag={recipe.strTags}
+            ingredients={recipe}
+            medidas={recipe}
+          />
+           </>
           ))
         )}
       </Grid>
