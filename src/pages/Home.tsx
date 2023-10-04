@@ -3,6 +3,7 @@ import { Grid } from "@mui/material";
 import { TitlePage, MultiActionAreaCard } from "../components/index";
 import { doGet } from "../api/index";
 import { IRecipe } from "../Interfaces/IRecipe";
+import { generateRandomIds } from "../utils";
 
 export const Home: React.FC = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
@@ -10,10 +11,8 @@ export const Home: React.FC = () => {
   const getRandomRecipes = async () => {
     try {
       // IDs das receitas
-      const recipeIds = [
-        52938, 52892, 52833, 52796, 52772, 52765, 52940, 52939, 52942, 52944,
-        52945, 52947,
-      ];
+      const recipeIds = generateRandomIds();
+
       const recipesData = await Promise.all(
         recipeIds.map(async (id) => {
           const response = await doGet(
