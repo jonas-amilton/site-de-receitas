@@ -5,7 +5,7 @@ import {
   TitlePage,
   MultiActionAreaCard,
 } from "../components/index";
-import axios from "axios";
+import { doGet } from "../api/index";
 import { IRecipe } from "../Interfaces/IRecipe";
 
 export const MenuByLetter: React.FC = () => {
@@ -16,15 +16,15 @@ export const MenuByLetter: React.FC = () => {
   const fetchRecipesByLetter = async () => {
     if (selectedLetter) {
       try {
-        const response = await axios.get(
+        const response = await doGet(
           `https://www.themealdb.com/api/json/v1/1/search.php?f=${selectedLetter}`
         );
 
-        if (!response.data.meals || response.data.meals.length === 0) {
+        if (!response.meals || response.meals.length === 0) {
           setNoResults(true);
         } else {
           setNoResults(false);
-          setRecipes(response.data.meals);
+          setRecipes(response.meals);
         }
       } catch (error) {
         console.error("Erro ao buscar receitas:", error);

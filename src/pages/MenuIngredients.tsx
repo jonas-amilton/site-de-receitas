@@ -8,7 +8,7 @@ import {
   CardMedia,
 } from "@mui/material";
 import { SearchField, TitlePage } from "../components/index";
-import axios from "axios";
+import { doGet } from "../api/index";
 
 interface IngredientButtonProps {
   ingredient?: string;
@@ -25,12 +25,12 @@ export const MenuIngredients: React.FC<IngredientButtonProps> = () => {
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const response = await axios.get(
+        const response = await doGet(
           "https://www.themealdb.com/api/json/v1/1/list.php?i=list"
         );
 
-        if (response.data && response.data.meals) {
-          const ingredientNames = response.data.meals.map(
+        if (response && response.meals) {
+          const ingredientNames = response.meals.map(
             (meal: any) => meal.strIngredient
           );
           setIngredients(ingredientNames);
@@ -47,12 +47,12 @@ export const MenuIngredients: React.FC<IngredientButtonProps> = () => {
     const fetchRecipesByIngredient = async () => {
       if (selectedIngredient) {
         try {
-          const response = await axios.get(
+          const response = await doGet(
             `https://www.themealdb.com/api/json/v1/1/filter.php?i=${selectedIngredient}`
           );
 
-          if (response.data && response.data.meals) {
-            setFilteredRecipes(response.data.meals);
+          if (response && response.meals) {
+            setFilteredRecipes(response.meals);
           } else {
             setFilteredRecipes([]);
           }

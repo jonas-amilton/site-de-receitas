@@ -5,7 +5,7 @@ import {
   MultiActionAreaCard,
   SearchField,
 } from "../components/index";
-import axios from "axios";
+import { doGet } from "../api/index";
 import { IRecipe } from "../Interfaces/IRecipe";
 
 export const MenuByName: React.FC = () => {
@@ -14,12 +14,12 @@ export const MenuByName: React.FC = () => {
 
   const getRecipesByName = async () => {
     try {
-      const response = await axios.get(
+      const response = await doGet(
         `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchQuery}`
       );
 
-      if (response.data.meals) {
-        setRecipes(response.data.meals);
+      if (response.meals) {
+        setRecipes(response.meals);
       } else {
         setRecipes([]);
       }

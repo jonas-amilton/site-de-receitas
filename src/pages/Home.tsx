@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Grid } from "@mui/material";
 import { TitlePage, MultiActionAreaCard } from "../components/index";
-import axios from "axios";
+import { doGet } from "../api/index";
 import { IRecipe } from "../Interfaces/IRecipe";
 
 export const Home: React.FC = () => {
@@ -16,10 +16,10 @@ export const Home: React.FC = () => {
       ];
       const recipesData = await Promise.all(
         recipeIds.map(async (id) => {
-          const response = await axios.get(
+          const response = await doGet(
             `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
           );
-          return response.data.meals ? response.data.meals[0] : null;
+          return response.meals ? response.meals[0] : null;
         })
       );
       setRecipes(recipesData.filter((recipe) => recipe !== null));
