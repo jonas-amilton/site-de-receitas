@@ -39,7 +39,11 @@ export const MenuByName: React.FC = () => {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid
+      style={{ display: "flex", justifyContent: "center" }}
+      container
+      spacing={2}
+    >
       <TitlePage title="Procurar Receitas por Nome" />
       <SearchField onChange={handleSearchInputChange} />
       {recipes.map((recipe) => (

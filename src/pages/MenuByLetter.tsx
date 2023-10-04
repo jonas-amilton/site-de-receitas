@@ -37,7 +37,11 @@ export const MenuByLetter: React.FC = () => {
   }, [selectedLetter]);
 
   return (
-    <Grid container spacing={2}>
+    <Grid
+      style={{ display: "flex", justifyContent: "center" }}
+      container
+      spacing={2}
+    >
       <TitlePage title="Receitas por Letra" />
       <Grid item xs={12}>
         <AlphabetButtons onSelectLetter={setSelectedLetter} />

@@ -19,7 +19,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "90vw",
+  width: "70vw",
   height: "90vh",
   bgcolor: "background.paper",
   border: "2px solid #000",
@@ -65,16 +65,22 @@ export function MultiActionAreaCard(props: {
       >
         <Box sx={style}>
           <div style={{ height: "100%" }}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
+            <Typography
+              style={{ color: "#F97316", fontWeight: "bold" }}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
               {title}
             </Typography>
-            <CardMedia component="img" height="194" image={image} alt={title} />
+            <CardMedia component="img" height="360" image={image} alt={title} />
             <Grid
               item
               xs={12}
-              sx={{ display: "flex", justifyContent: "space-around" }}
+              sx={{ display: "flex", justifyContent: "space-between" }}
             >
               <Typography
+                style={{ fontWeight: "bold" }}
                 variant="subtitle1"
                 id="modal-modal-description"
                 sx={{ mt: 2 }}
@@ -82,6 +88,7 @@ export function MultiActionAreaCard(props: {
                 Categoria: {categoria}
               </Typography>
               <Typography
+                style={{ fontWeight: "bold" }}
                 variant="subtitle1"
                 id="modal-modal-description"
                 sx={{ mt: 2 }}
@@ -89,6 +96,7 @@ export function MultiActionAreaCard(props: {
                 Área: {area}
               </Typography>
               <Typography
+                style={{ fontWeight: "bold" }}
                 variant="subtitle1"
                 id="modal-modal-description"
                 sx={{ mt: 2 }}
@@ -103,7 +111,11 @@ export function MultiActionAreaCard(props: {
                 </Typography>
               </Grid>
               <Grid item xs={6} md={6}>
-                <Typography variant="subtitle1" color="text.secondary">
+                <Typography
+                  style={{ fontWeight: "bold" }}
+                  variant="subtitle1"
+                  color="text.secondary"
+                >
                   Ingredientes
                 </Typography>
 
@@ -129,7 +141,11 @@ export function MultiActionAreaCard(props: {
                 })}
               </Grid>
               <Grid item xs={6} md={6}>
-                <Typography variant="subtitle1" color="text.secondary">
+                <Typography
+                  style={{ fontWeight: "bold" }}
+                  variant="subtitle1"
+                  color="text.secondary"
+                >
                   Medidas
                 </Typography>
                 {Array.from({ length: 50 }).map((_, i) => {
@@ -176,7 +192,16 @@ export function MultiActionAreaCard(props: {
         </Box>
       </Modal>
 
-      <Card sx={{ width: "20em", margin: "1.2em" }}>
+      <Card
+        sx={{
+          width: "22em",
+          margin: ".4em",
+          transition: "transform 0.2s",
+          "&:hover": {
+            transform: "scale(1.05)",
+          },
+        }}
+      >
         <CardActionArea>
           <CardMedia component="img" height="140" image={image} alt={title} />
           <CardContent>

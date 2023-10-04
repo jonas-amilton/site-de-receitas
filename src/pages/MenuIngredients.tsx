@@ -82,7 +82,11 @@ export const MenuIngredients: React.FC<IngredientButtonProps> = () => {
   );
 
   return (
-    <Grid container spacing={2}>
+    <Grid
+      style={{ display: "flex", justifyContent: "center" }}
+      container
+      spacing={2}
+    >
       <TitlePage title="Lista de Ingredientes" />
       <SearchField onChange={handleSearchInputChange} />
 
@@ -111,7 +115,17 @@ export const MenuIngredients: React.FC<IngredientButtonProps> = () => {
       {selectedIngredient && (
         <Grid item xs={12} style={{ display: "contents" }}>
           {filteredRecipes.map((recipe) => (
-            <Card sx={{ width: "20em", margin: "1.2em" }}>
+            <Card
+              sx={{
+                width: "22em",
+                margin: ".4em",
+                transition: "transform 0.2s",
+                "&:hover": {
+                  transform: "scale(1.05)",
+                },
+                cursor: "pointer",
+              }}
+            >
               <CardMedia
                 key={recipe.idMeal}
                 sx={{ height: 140 }}

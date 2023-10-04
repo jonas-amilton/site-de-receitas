@@ -32,7 +32,11 @@ export const Home: React.FC = () => {
   }, []);
 
   return (
-    <Grid container spacing={2}>
+    <Grid
+      style={{ display: "flex", justifyContent: "center" }}
+      container
+      spacing={2}
+    >
       <TitlePage title="Receitas Aleatórias" />
       {recipes.map((recipe) => (
         <MultiActionAreaCard
