@@ -43,20 +43,18 @@ export const MenuByName: React.FC = () => {
       <TitlePage title="Procurar Receitas por Nome" />
       <SearchField onChange={handleSearchInputChange} />
       {recipes.map((recipe) => (
-        <>
-          <MultiActionAreaCard
-            key={recipe.idMeal}
-            title={recipe.strMeal}
-            description={recipe.strInstructions}
-            image={recipe.strMealThumb}
-            urlYoutube={recipe.strYoutube}
-            categoria={recipe.strCategory}
-            area={recipe.strArea}
-            tag={recipe.strTags}
-            ingredients={recipe}
-            medidas={recipe}
-          />
-        </>
+        <MultiActionAreaCard
+          key={recipe.idMeal}
+          title={recipe.strMeal}
+          description={recipe.strInstructions}
+          image={recipe.strMealThumb}
+          urlYoutube={recipe.strYoutube}
+          categoria={recipe.strCategory}
+          area={recipe.strArea}
+          tag={recipe.strTags}
+          ingredients={recipe}
+          medidas={recipe}
+        />
       ))}
     </Grid>
   );

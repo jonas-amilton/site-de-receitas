@@ -4,10 +4,9 @@ import { TitlePage, MultiActionAreaCard } from "../components/index";
 import axios from "axios";
 import { IRecipe } from "../Interfaces/IRecipe";
 
-
 export const Home: React.FC = () => {
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
-  
+
   const getRandomRecipes = async () => {
     try {
       // IDs das receitas
@@ -37,20 +36,18 @@ export const Home: React.FC = () => {
     <Grid container spacing={2}>
       <TitlePage title="Receitas Aleatórias" />
       {recipes.map((recipe) => (
-        <>
-          <MultiActionAreaCard
-            key={recipe.idMeal}
-            title={recipe.strMeal}
-            description={recipe.strInstructions}
-            image={recipe.strMealThumb}
-            urlYoutube={recipe.strYoutube}
-            categoria={recipe.strCategory}
-            area={recipe.strArea}
-            tag={recipe.strTags}
-            ingredients={recipe}
-            medidas={recipe}
-          />
-        </>
+        <MultiActionAreaCard
+          key={recipe.idMeal}
+          title={recipe.strMeal}
+          description={recipe.strInstructions}
+          image={recipe.strMealThumb}
+          urlYoutube={recipe.strYoutube}
+          categoria={recipe.strCategory}
+          area={recipe.strArea}
+          tag={recipe.strTags}
+          ingredients={recipe}
+          medidas={recipe}
+        />
       ))}
     </Grid>
   );

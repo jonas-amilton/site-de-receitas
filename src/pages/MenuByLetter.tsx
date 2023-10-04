@@ -8,8 +8,6 @@ import {
 import axios from "axios";
 import { IRecipe } from "../Interfaces/IRecipe";
 
-
-
 export const MenuByLetter: React.FC = () => {
   const [selectedLetter, setSelectedLetter] = useState<string | null>(null);
   const [recipes, setRecipes] = useState<IRecipe[]>([]);
@@ -56,20 +54,18 @@ export const MenuByLetter: React.FC = () => {
           </Grid>
         ) : (
           recipes.map((recipe) => (
-           <>
             <MultiActionAreaCard
-            key={recipe.idMeal}
-            title={recipe.strMeal}
-            description={recipe.strInstructions}
-            image={recipe.strMealThumb}
-            urlYoutube={recipe.strYoutube}
-            categoria={recipe.strCategory}
-            area={recipe.strArea}
-            tag={recipe.strTags}
-            ingredients={recipe}
-            medidas={recipe}
-          />
-           </>
+              key={recipe.idMeal}
+              title={recipe.strMeal}
+              description={recipe.strInstructions}
+              image={recipe.strMealThumb}
+              urlYoutube={recipe.strYoutube}
+              categoria={recipe.strCategory}
+              area={recipe.strArea}
+              tag={recipe.strTags}
+              ingredients={recipe}
+              medidas={recipe}
+            />
           ))
         )}
       </Grid>
