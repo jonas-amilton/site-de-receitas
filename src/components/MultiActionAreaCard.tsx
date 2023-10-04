@@ -12,7 +12,7 @@ import {
   Grid,
 } from "@mui/material";
 
-import { limitDescription } from "../utils/limitDescription";
+import { limitDescription } from "../utils/index";
 
 const style = {
   position: "absolute" as "absolute",
