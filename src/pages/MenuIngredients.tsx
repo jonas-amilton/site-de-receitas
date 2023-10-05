@@ -6,6 +6,7 @@ import {
   CardContent,
   Typography,
   CardMedia,
+  useTheme,
 } from "@mui/material";
 import { SearchField, TitlePage } from "../components/index";
 import { doGet } from "../api/index";
@@ -15,6 +16,8 @@ interface IngredientButtonProps {
 }
 
 export const MenuIngredients: React.FC<IngredientButtonProps> = () => {
+  const theme = useTheme();
+
   const [ingredients, setIngredients] = useState<string[]>([]);
   const [selectedIngredient, setSelectedIngredient] = useState<string | null>(
     null
@@ -86,7 +89,7 @@ export const MenuIngredients: React.FC<IngredientButtonProps> = () => {
       style={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "flex-start",
+        justifyContent: "center",
       }}
       container
       spacing={2}
@@ -104,7 +107,15 @@ export const MenuIngredients: React.FC<IngredientButtonProps> = () => {
                 color: "#000",
                 backgroundColor: "#fff",
               }}
-              sx={{ width: "36em" }}
+              sx={{
+                width: "38em",
+                [theme.breakpoints.down("lg")]: {
+                  width: "28em",
+                },
+                [theme.breakpoints.down("md")]: {
+                  width: "24em",
+                },
+              }}
               variant="contained"
               onClick={() => handleIngredientClick(ingredientName)}
             >
