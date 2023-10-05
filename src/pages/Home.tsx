@@ -33,7 +33,7 @@ export const Home: React.FC = () => {
 
   return (
     <Grid
-      style={{ display: "flex", justifyContent: "center" }}
+      style={{ display: "flex", justifyContent: "space-between" }}
       container
       spacing={2}
     >

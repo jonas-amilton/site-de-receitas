@@ -56,7 +56,7 @@ export function MultiActionAreaCard(props: {
   const handleClose = () => setOpen(false);
 
   return (
-    <>
+    <div style={{margin: '1em'}}>
       <Modal
         open={open}
         onClose={handleClose}
@@ -205,7 +205,6 @@ export function MultiActionAreaCard(props: {
       <Card
         sx={{
           width: "22em",
-          margin: ".4em",
           transition: "transform 0.2s",
           "&:hover": {
             transform: "scale(1.05)",
@@ -244,6 +243,6 @@ export function MultiActionAreaCard(props: {
           </Button>
         </CardActions>
       </Card>
-    </>
+    </div>
   );
 }
