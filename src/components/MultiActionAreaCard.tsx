@@ -89,7 +89,26 @@ export function MultiActionAreaCard(props: {
                 height="360"
                 image={image}
                 alt={title}
-                style={{ maxWidth: "90%", height: "auto", margin: ".6em" }}
+                sx={{
+                  minWidth: '10em',
+                  maxWidth: '30em' ,
+                  height: "auto",
+                  margin: ".6em",
+                  [theme.breakpoints.down("lg")]: {
+                    width: "30em",
+                  },
+                  [theme.breakpoints.down("md")]: {
+                    width: "30em",
+                  },
+                  [theme.breakpoints.down("sm")]: {
+                    width: "18em",
+                    margin: ".4em",
+                  },
+                  [theme.breakpoints.down("xs")]: {
+                    width: "10em",
+                    margin: ".4em",
+                  },
+                }}
               />
             </Grid>
             <Grid container spacing={2}>
