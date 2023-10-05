@@ -83,7 +83,11 @@ export const MenuIngredients: React.FC<IngredientButtonProps> = () => {
 
   return (
     <Grid
-      style={{ display: "flex", justifyContent: "space-between" }}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+      }}
       container
       spacing={2}
     >

@@ -10,6 +10,7 @@ import {
   Box,
   Modal,
   Grid,
+  useTheme,
 } from "@mui/material";
 
 import { limitDescription } from "../utils/index";
@@ -55,8 +56,10 @@ export function MultiActionAreaCard(props: {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const theme = useTheme();
+
   return (
-    <div style={{margin: '1em'}}>
+    <div style={{ margin: "1em" }}>
       <Modal
         open={open}
         onClose={handleClose}
@@ -86,7 +89,7 @@ export function MultiActionAreaCard(props: {
                 height="360"
                 image={image}
                 alt={title}
-                style={{ maxWidth: "90%", height: "auto", margin: '.6em' }}
+                style={{ maxWidth: "90%", height: "auto", margin: ".6em" }}
               />
             </Grid>
             <Grid container spacing={2}>
@@ -203,11 +206,22 @@ export function MultiActionAreaCard(props: {
       </Modal>
 
       <Card
+        className="cards"
         sx={{
           width: "22em",
           transition: "transform 0.2s",
           "&:hover": {
             transform: "scale(1.05)",
+          },
+          [theme.breakpoints.down("lg")]: {
+            width: "16rem",
+          },
+          [theme.breakpoints.down("md")]: {
+            width: "21rem",
+          },
+          [theme.breakpoints.down("sm")]: {
+            width: "100%",
+            margin: ".4em",
           },
         }}
       >
@@ -217,7 +231,7 @@ export function MultiActionAreaCard(props: {
             <Typography gutterBottom variant="h5" component="div">
               {title}
             </Typography>
-            <Typography variant="body2" color="text.secondary">
+            <Typography minHeight="4em" variant="body2" color="text.secondary">
               {limitDescription(description, 20)}
             </Typography>
           </CardContent>

@@ -38,7 +38,11 @@ export const MenuByLetter: React.FC = () => {
 
   return (
     <Grid
-      style={{ display: "flex", justifyContent: "space-between" }}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-start",
+      }}
       container
       spacing={2}
     >
