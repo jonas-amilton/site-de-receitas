@@ -19,7 +19,7 @@ const style = {
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: "70vw",
+  width: "90vw",
   height: "90vh",
   bgcolor: "background.paper",
   border: "2px solid #000",
@@ -64,61 +64,76 @@ export function MultiActionAreaCard(props: {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div style={{ height: "100%" }}>
+          <div style={{ padding: ".2em" }}>
             <Typography
               style={{ color: "#F97316", fontWeight: "bold" }}
               id="modal-modal-title"
               variant="h6"
               component="h2"
+              gutterBottom
             >
               {title}
             </Typography>
-            <CardMedia component="img" height="360" image={image} alt={title} />
             <Grid
-              item
+              style={{
+                display: "flex",
+                justifyContent: "center",
+              }}
               xs={12}
-              sx={{ display: "flex", justifyContent: "space-between" }}
             >
-              <Typography
-                style={{ fontWeight: "bold" }}
-                variant="subtitle1"
-                id="modal-modal-description"
-                sx={{ mt: 2 }}
-              >
-                Categoria: {categoria}
-              </Typography>
-              <Typography
-                style={{ fontWeight: "bold" }}
-                variant="subtitle1"
-                id="modal-modal-description"
-                sx={{ mt: 2 }}
-              >
-                Área: {area}
-              </Typography>
-              <Typography
-                style={{ fontWeight: "bold" }}
-                variant="subtitle1"
-                id="modal-modal-description"
-                sx={{ mt: 2 }}
-              >
-                Tags: {tag}
-              </Typography>
+              <CardMedia
+                component="img"
+                height="360"
+                image={image}
+                alt={title}
+                style={{ maxWidth: "90%", height: "auto", margin: '.6em' }}
+              />
             </Grid>
             <Grid container spacing={2}>
-              <Grid item xs={6} md={12}>
+              <Grid item xs={12} sm={6} md={4}>
+                <Typography
+                  style={{ fontWeight: "bold" }}
+                  variant="subtitle1"
+                  id="modal-modal-description"
+                  gutterBottom
+                >
+                  Categoria: {categoria}
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <Typography
+                  style={{ fontWeight: "bold" }}
+                  variant="subtitle1"
+                  id="modal-modal-description"
+                  gutterBottom
+                >
+                  Área: {area}
+                </Typography>
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <Typography
+                  style={{ fontWeight: "bold" }}
+                  variant="subtitle1"
+                  id="modal-modal-description"
+                  gutterBottom
+                >
+                  Tags: {tag}
+                </Typography>
+              </Grid>
+              <Grid item xs={12}>
                 <Typography variant="body2" color="text.secondary">
                   {description}
                 </Typography>
               </Grid>
-              <Grid item xs={6} md={6}>
+              <Grid item xs={12} sm={6} md={6}>
                 <Typography
                   style={{ fontWeight: "bold" }}
                   variant="subtitle1"
                   color="text.secondary"
+                  gutterBottom
                 >
                   Ingredientes
                 </Typography>
-
                 {Array.from({ length: 50 }).map((_, i) => {
                   const ingredient = ingredients[`strIngredient${i + 1}`];
                   if (
@@ -132,6 +147,7 @@ export function MultiActionAreaCard(props: {
                         variant="subtitle1"
                         color="text.secondary"
                         key={i}
+                        gutterBottom
                       >
                         {`${1 + i}. ${ingredient}`}
                       </Typography>
@@ -140,11 +156,12 @@ export function MultiActionAreaCard(props: {
                   return null;
                 })}
               </Grid>
-              <Grid item xs={6} md={6}>
+              <Grid item xs={12} sm={6} md={6}>
                 <Typography
                   style={{ fontWeight: "bold" }}
                   variant="subtitle1"
                   color="text.secondary"
+                  gutterBottom
                 >
                   Medidas
                 </Typography>
@@ -161,6 +178,7 @@ export function MultiActionAreaCard(props: {
                         variant="subtitle1"
                         color="text.secondary"
                         key={i}
+                        gutterBottom
                       >
                         {`${1 + i}. ${medida}`}
                       </Typography>
@@ -169,25 +187,17 @@ export function MultiActionAreaCard(props: {
                   return null;
                 })}
               </Grid>
-              <Grid
-                item
-                xs={12}
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  margin: "1em",
-                }}
-              >
-                <Button
-                  style={{ background: "#F97316", color: "#fff" }}
-                  size="small"
-                  href={urlYoutube}
-                  target="_blank"
-                >
-                  Youtube
-                </Button>
-              </Grid>
             </Grid>
+            <div style={{ textAlign: "center", marginTop: "1em" }}>
+              <Button
+                style={{ background: "#F97316", color: "#fff" }}
+                size="small"
+                href={urlYoutube}
+                target="_blank"
+              >
+                Youtube
+              </Button>
+            </div>
           </div>
         </Box>
       </Modal>
